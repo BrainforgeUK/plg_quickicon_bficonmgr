@@ -71,7 +71,7 @@
                                     type="text"
                                     label="PLG_QUICKICON_BFICONMGR_URL_LABEL"
                                     required="true"
-                                    hint="administrator/com_mycontent"
+                                    hint="index.php?option=com_mycontent"
                             />
                         </fieldset>
                     </form>

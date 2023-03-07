@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="quickicon" method="upgrade">
+	<name>plg_quickicon_bficonmgr</name>
+    <creationDate>March 2023</creationDate>
+    <version>1.0.0</version>
+    <author>Jonathan Brain</author>
+    <authorEmail>brainforge.uk@btinternet.com</authorEmail>
+    <authorUrl>https://www.brainforge.co.uk</authorUrl>
+    <copyright>Copyright 2023 Jonathan Brain. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<description>PLG_QUICKICON_BFICONMGR_XML_DESCRIPTION</description>
+    <namespace>brainforgeuk\quickicon\bficonmgr</namespace>
+
+	<files folder="plugins/quickicon/bficonmgr">
+        <filename plugin="bficonmgr">bficonmgr.php</filename>
+        <folder>forms</folder>
+        <folder>language</folder>
+	</files>
+
+    <config>
+        <fields
+                name="params"
+        >
+            <fieldset
+                    name="basic"
+            >
+                <field
+                        name="links"
+                        type="subform"
+                        label="PLG_QUICKICON_BFICONMGR_LINKS_LABEL"
+                        groupByFieldset="true"
+                        layout="joomla.form.field.subform.repeatable"
+                        multiple="true"
+                        min="0"
+                >
+                    <form>
+                        <fieldset name="fs1">
+                            <field
+                                    name="module_id"
+                                    type="sql"
+                                    label="PLG_QUICKICON_BFICONMGR_MODULE_LABEL"
+                                    required="true"
+                                    query="SELECT id, title FROM #__modules WHERE module='mod_quickicon' ORDER BY title"
+                                    key_field="id"
+                                    value_field="title"
+                            >
+                                <option value=""></option>
+                            </field>
+
+                            <field
+                                    name="title"
+                                    type="text"
+                                    label="PLG_QUICKICON_BFICONMGR_TITLE_LABEL"
+                                    required="true"
+                                    hint="My Content"
+                                    />
+
+                            <field
+                                    name="icon"
+                                    type="text"
+                                    label="PLG_QUICKICON_BFICONMGR_ICON_LABEL"
+                                    description="PLG_QUICKICON_BFICONMGR_ICON_DESC"
+                                    required="true"
+                                    hint="fa-joomla"
+                            />
+                        </fieldset>
+
+                        <fieldset name="fs2">
+                            <field
+                                    name="url"
+                                    type="text"
+                                    label="PLG_QUICKICON_BFICONMGR_URL_LABEL"
+                                    required="true"
+                                    hint="administrator/com_mycontent"
+                            />
+                        </fieldset>
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="PLG_QUICKICON_BFICONMGR">
+            https://brainforge.co.uk/component/bfupdater?element=plg_quickicon_bficons.xml
+        </server>
+    </updateservers>
+</extension>

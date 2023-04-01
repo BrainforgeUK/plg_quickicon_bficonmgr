@@ -13,7 +13,6 @@
 
 	<files folder="plugins/quickicon/bficonmgr">
         <filename plugin="bficonmgr">bficonmgr.php</filename>
-        <folder>forms</folder>
         <folder>language</folder>
 	</files>
 
